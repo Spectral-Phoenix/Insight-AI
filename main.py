@@ -18,3 +18,4 @@ st.write(f'You wrote {len(txt)} characters.')
 if st.button("Save",use_container_width=True, type="primary"):
     st.balloons()
     st.success("Your thoughts have been saved!")
+    st.page_link("pages/review.py", label="Review")

@@ -4,5 +4,5 @@ toolbarMode = "minimal"
 showSidebarNavigation = true
 
 [theme]
-
+#eeefe9
 base = "dark"
