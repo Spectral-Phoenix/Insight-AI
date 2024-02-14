@@ -1,8 +1,9 @@
 import streamlit as st
+import os
 from nav import switch_page
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-api_gemini = "AIzaSyB4v74PmXcRPT33W5aVpROQBSqawQQC6hI"
+api_gemini = st.secrets["api_key"]
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-pro",temperature=0.5, google_api_key=api_gemini
