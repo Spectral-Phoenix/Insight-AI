@@ -13,7 +13,7 @@ st.title("Insight AI")
 
 st.markdown("This is a place where you can save your thoughts, ideas, inspiration, and more.")
 
-text = st.text_area("",key="text")
+text = st.text_area("test",key="text",label_visibility="hidden")
 
 st.write(f'You wrote {len(text)} characters.')
 
