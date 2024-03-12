@@ -1,17 +1,19 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
 import streamlit as st
 
-gemini_api = st.secrets["api_key"]
+#from dotenv import load_dotenv
+from langchain_community.llms import Cohere
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-pro",temperature=0.5, google_api_key=gemini_api
-)
+#load_dotenv()
 
-def generate(text):
+api_key = st.secrets["GEMINI_API_KEY"]
+api_key_1 = st.secrets["COHERE_API_KEY"]
 
-    prompt = " "
+llm = ChatGoogleGenerativeAI(model="gemini-pro",
+                                google_api_key=api_key,
+                                temperature = 0.5)
 
-    message = prompt1 + text
-    summary = llm.invoke(message)
-
-    return summary.content
+llm1 = Cohere(model="command-nightly",
+                cohere_api_key = api_key_1,
+                max_tokens=4096,
+                temperature=0.5,)

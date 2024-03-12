@@ -1,4 +1,8 @@
-streamlit
-requests
-langchain
+langchain_core
 langchain-google-genai
+Pillow
+bs4
+requests
+streamlit
+langchain-community
+cohere
