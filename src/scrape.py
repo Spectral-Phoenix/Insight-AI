@@ -31,8 +31,6 @@ def get_content_from_url(soup):
         text += element.text + "\n"
     return text
 
-  # Replace with your list of links
-
 def scrape(links):
     content_list = scrape_text(links)
     for content in content_list:

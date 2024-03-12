@@ -2,6 +2,7 @@ langchain_core
 langchain-google-genai
 Pillow
 bs4
+lxml==5.1.0
 requests
 streamlit
 langchain-community

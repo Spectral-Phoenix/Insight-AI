@@ -4,3 +4,4 @@
 secrets.toml
 .devcontainer
 test.py
+__pycache__
