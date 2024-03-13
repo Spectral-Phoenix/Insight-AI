@@ -22,6 +22,6 @@ if st.button("Search"):
     end_time = time.time()
     elapsed_time = "{:.2f}".format(end_time - start_time)
 
-    st.markdown(f"\nAnswer: {answer}")
+    st.markdown(f"\nAnswer:\n {answer}")
 
     st.text(f"Time Elapsed: {elapsed_time} seconds")
