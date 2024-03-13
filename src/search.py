@@ -8,7 +8,7 @@ import requests
 
 sys.path.append(os.path.abspath("src"))
 
-from models import llm, llm1
+from models import llm, llm1, llm2
 
 #load_dotenv()
 

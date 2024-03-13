@@ -3,7 +3,7 @@ import sys
 
 sys.path.append(os.path.abspath("src"))
 
-from models import llm, llm1
+from models import llm, llm1, llm2
 
 model = llm1
 
@@ -16,3 +16,4 @@ def summarise(user_query,text):
         return result.content
     else:
         return result
+print(llm2.invoke("What is the capital of France?"))
