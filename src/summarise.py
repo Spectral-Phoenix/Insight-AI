@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath("src"))
 
 from models import llm, llm1, llm2
 
-model = llm1
+model = llm2
 
 def summarise(user_query,text):
     prompt_template = f"Provide a detailed response to the following question based on the context provided.\nQuestion: {user_query}\nContext:\n{text}"
