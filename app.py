@@ -5,7 +5,7 @@ from src.scrape import scrape
 from src.search import quick_web_search, deep_web_search
 from src.summarise import summarise
 
-st.markdown("<h1 style='text-align: center;'>Search Engine - DTI Project</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Insight AI - DTI Project</h1>", unsafe_allow_html=True)
 
 # Using Streamlit's columns to layout input and button side by side
 col1, col2 = st.columns([3, 1])  # Adjust the ratio as needed
