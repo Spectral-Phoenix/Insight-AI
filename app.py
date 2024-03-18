@@ -5,23 +5,32 @@ from src.scrape import scrape
 from src.search import quick_web_search, deep_web_search
 from src.summarise import summarise
 
-user_query = st.text_input("Enter the Query: ")
+st.markdown("<h1 style='text-align: center;'>Search Engine - DTI Project</h1>", unsafe_allow_html=True)
 
-if st.button("Search"):
-    
-    start_time = time.time()
+# Using Streamlit's columns to layout input and button side by side
+col1, col2 = st.columns([3, 1])  # Adjust the ratio as needed
 
-    # Search the Web and Collect Links4
-    links = quick_web_search(user_query)
-    st.info("Web Search Completed!")
+with col1:
+    st.write("")  # Placeholder for alignment
+    user_query = st.text_input("Enter the Query: ", label_visibility="hidden", key='user_query')
 
-    # Scrape the Text from the Links
-    text = scrape(links)
-    answer = summarise(user_query, text)
+with col2:
+    st.write("")  # Placeholder for alignment
+    st.write("")  # Placeholder for alignment
+    if st.button("Search", key='search_button', help="Click to start search"):
+        start_time = time.time()
 
-    end_time = time.time()
-    elapsed_time = "{:.2f}".format(end_time - start_time)
+        # Search the Web and Collect Links
+        links = quick_web_search(user_query)
+        st.info("Web Search Completed!")
 
-    st.markdown(f"\nAnswer:\n {answer}")
+        # Scrape the Text from the Links
+        text = scrape(links)
+        answer = summarise(user_query, text)
 
-    st.text(f"Time Elapsed: {elapsed_time} seconds")
+        end_time = time.time()
+        elapsed_time = "{:.2f}".format(end_time - start_time)
+
+        st.markdown(f"\nAnswer:\n {answer}")
+
+        st.text(f"Time Elapsed: {elapsed_time} seconds")

@@ -5,4 +5,6 @@ showSidebarNavigation = true
 
 [theme]
 #eeefe9
-base = "dark"
+
+base = "light"
+font = "serif"
