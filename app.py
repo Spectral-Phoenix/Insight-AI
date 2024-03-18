@@ -10,27 +10,19 @@ st.markdown("<h1 style='text-align: center;'>Search Engine - DTI Project</h1>", 
 # Using Streamlit's columns to layout input and button side by side
 col1, col2 = st.columns([3, 1])  # Adjust the ratio as needed
 
-with col1:
-    st.write("")  # Placeholder for alignment
-    user_query = st.text_input("Enter the Query: ", label_visibility="hidden", key='user_query')
 
-with col2:
-    st.write("")  # Placeholder for alignment
-    st.write("")  # Placeholder for alignment
-    if st.button("Search", key='search_button', help="Click to start search"):
-        start_time = time.time()
 
-        # Search the Web and Collect Links
-        links = quick_web_search(user_query)
-        st.info("Web Search Completed!")
+user_query = st.text_input("Enter the Query: ", label_visibility="hidden", key='user_query')
 
-        # Scrape the Text from the Links
-        text = scrape(links)
-        answer = summarise(user_query, text)
-
-        end_time = time.time()
-        elapsed_time = "{:.2f}".format(end_time - start_time)
-
-        st.markdown(f"\nAnswer:\n {answer}")
-
-        st.text(f"Time Elapsed: {elapsed_time} seconds")
+if st.button("Search", key='search_button', help="Click to start search"):
+    start_time = time.time()
+    # Search the Web and Collect Links
+    links = quick_web_search(user_query)
+    st.info("Web Search Completed!")
+    # Scrape the Text from the Links
+    text = scrape(links)
+    answer = summarise(user_query, text)
+    end_time = time.time()
+    elapsed_time = "{:.2f}".format(end_time - start_time)
+    st.markdown(f"\nAnswer:\n {answer}")
+    st.text(f"Time Elapsed: {elapsed_time} seconds")
