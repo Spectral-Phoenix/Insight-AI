@@ -7,15 +7,15 @@ from src.summarise import summarise
 
 st.markdown("<h1 style='text-align: center;'>Insight AI - DTI Project</h1>", unsafe_allow_html=True)
 
-# Using Streamlit's columns to layout input and button side by side
-col1, col2 = st.columns([3, 1])  # Adjust the ratio as needed
-
-
 
 user_query = st.text_input("Enter the Query: ", label_visibility="hidden", key='user_query')
+col1, col2, col3, col4, col5 = st.columns(5)
 
-if st.button("Search", key='search_button', help="Click to start search"):
+if col3.button("Search", key='search_button', help="Click to start search", type='primary'):
     start_time = time.time()
+    if user_query == "":
+        st.warning("Please enter a query!")
+        st.stop()
     # Search the Web and Collect Links
     links = quick_web_search(user_query)
     st.info("Web Search Completed!")
