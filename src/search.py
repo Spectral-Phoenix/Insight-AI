@@ -8,7 +8,7 @@ import requests
 
 sys.path.append(os.path.abspath("src"))
 
-from models import llm, llm1, llm2
+# from models import llm, llm1, llm2
 
 #load_dotenv()
 
@@ -58,28 +58,28 @@ def quick_web_search(user_query):
         print(f"Error in API request. Status code: {response.status_code}")
         return None
 
-def deep_web_search(user_query):
-    prompt = """Write three Google search queries to gather information online \
-        that helps form an objective opinion from the following topic: {}.\nYou \
-        must strictly respond with a list of strings in the following \
-        format:\n["Query 1", "Query 2", "Query 3"]""".format(user_query)
+# def deep_web_search(user_query):
+#     prompt = """Write three Google search queries to gather information online \
+#         that helps form an objective opinion from the following topic: {}.\nYou \
+#         must strictly respond with a list of strings in the following \
+#         format:\n["Query 1", "Query 2", "Query 3"]""".format(user_query)
 
-    result = llm1.invoke(prompt)
+#     result = llm1.invoke(prompt)
     
-    if result:
-        queries = json.loads(result)
-        search_results = []
+#     if result:
+#         queries = json.loads(result)
+#         search_results = []
 
-        for query in queries:
-            # Perform a quick web search for each query
-            links = quick_web_search(query)
+#         for query in queries:
+#             # Perform a quick web search for each query
+#             links = quick_web_search(query)
 
-            # Append the search results to the list
-            search_results.append(f"'{query}':\n" + '\n'.join(links))
+#             # Append the search results to the list
+#             search_results.append(f"'{query}':\n" + '\n'.join(links))
 
-        # Print the concatenated search results
-        final_result = '\n'.join(search_results)
+#         # Print the concatenated search results
+#         final_result = '\n'.join(search_results)
 
-        return final_result
-    else:
-        return "Error in generating search queries."
+#         return final_result
+#     else:
+#         return "Error in generating search queries."
